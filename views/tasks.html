@@ -1,0 +1,48 @@
+<!--  <div id="wrapper">-->
+	<!--  <div id="page-wrapper">-->
+	<!--	 <div class="container-fluid"> -->
+		 
+		 <div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Tasks</h1>
+    </div>
+
+
+
+
+    <!-- /.col-lg-12 -->
+<!-- </div>
+
+			<h1>Tasks</h1> -->
+			
+			<div ng-controller="TaskController">
+			<form name="myForm">
+			<br>
+			<label for="repeatSelect">Tasks:</label><br>
+			<select Description="repeatSelect" Details="repeatSelect" ng-model="tasks.repeatSelect">
+				
+				<option ng-repeat="task in tasks.availableOptions | filter:nameFilter" value="{{task.Description}}. {{task.Details}}" value="{{task.Details}}">{{task.ID}}. {{task.Name}}</option>
+			
+			</select>
+			Task filter: <input type="text" ng-model="nameFilter.Name" />
+			<li ng-repeat="task in tasks.availableOptions | filter:nameFilter">{{task.Name}}</li>
+			</form>
+			<br>
+			<label>Task Description:</label><br>
+			<textarea rows="8" cols="100" wrap="soft" >{{tasks.repeatSelect}}</textarea>
+			<br>
+			
+			
+			<!-- <button type="submit" ng-model="checked" ng-init="checked=true" >Show Task Detail if exist</button>
+			<br>
+			<label>Task Detail if exist:</label><br>
+			<textarea rows="4" cols="100" ng-if="checked" ng-repeat="task in tasks.availableOptions" value="{{task.Details}}">{{ tasks.Details}}</textarea>
+			 -->
+			</div> 
+
+		<!--  </div> -->
+
+	<!--  </div>-->
+	<!-- /.container-fluid -->
+
+<!--</div> -->

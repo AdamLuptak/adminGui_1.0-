@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="dataTable_wrapper">
+			<div class="form-group col-lg-1">
+				<label>Search by:</label>
+			</div>
+			<div class="form-group col-lg-2">
+				<label>Name</label> <input class="form-control"
+					ng-model="search.firstName">
+			</div>
+			<div class="form-group col-lg-2">
+				<label>Surname</label> <input class="form-control"
+					ng-model="search.surname">
+			</div>
+			<div class="form-group col-lg-2">
+				<label>Organisation</label> <input class="form-control"
+					ng-model="search.organisation">
+			</div>
+
+			<table class="table table-striped table-bordered table-hover"
+				id="tableUsers">
+				<thead>
+					<tr>
+						<th ng-repeat='head in tableHeads' width="13.3%">
+						<a href="#/dashboard/users" ng-click="orderBy(head.name)">{{head.label}} 
+							<span ng-show="orderByField == head.name"> 
+								<span ng-show="!reverseSort"><i class="fa fa-sort-numeric-asc"></i></span>
+								<span ng-show="reverseSort"><i class="fa fa-sort-numeric-desc"></i></span>
+							</span></a></th>
+					
+						<th width="20%">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr
+						ng-repeat="user in users | filter:search:strict | orderBy:orderByField:reverseSort">
+						<td>{{user.id}}</td>
+						<td>{{user.firstName}}</td>
+						<td>{{user.surname}}</td>
+						<td>{{user.organisation}}</td>
+						<td>{{user.assigned}}</td>
+						<td>{{user.done}}</td>
+						<td>
+							<button id="button" class="btn btn-default">View</button>
+							<button id="button" class="btn btn-default">Assign Task</button>
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

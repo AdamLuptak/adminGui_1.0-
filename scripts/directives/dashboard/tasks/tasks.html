@@ -1,0 +1,12 @@
+<div ng-repeat="task in tasks | orderBy:sortType:sortReverse | filter:searchTask | limitTo:numberOfTasks">
+	<a href={{task.href}} class="list-group-item" ng-click="setSelected($index)"> <i
+		class="fa fa-{{task.icon}} fa-fw"></i> {{task.text}} <span
+		class="pull-right text-muted small badge">{{task.time}}</span>
+	</a>
+	<div class="panel panel-info" ng-show="$index==selected">
+		<div class="panel-heading">Details:</div>
+		<div class="panel-body">
+			<p>{{task.text}}</p>
+		</div>
+	</div>
+</div>
